@@ -1,9 +1,24 @@
 .navbar {
   display: flex;
-  justify-content: space-between; /* logo izquierda, links derecha */
+  justify-content: space-between;
   align-items: center;
+
   padding: 20px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  background: #201d1d;  /* 👈 tu color original */
+  transition: all 0.3s ease;
+
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background: rgba(32, 29, 29, 0.4);  /* 👈 más transparente */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
@@ -30,8 +45,4 @@
 
 .links a:hover {
   color: #2563eb;
-}
-
-nav {
-    background-color: #201d1d;
 }

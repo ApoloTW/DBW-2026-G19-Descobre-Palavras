@@ -45,3 +45,160 @@
   transform: scale(1.05);
 }
 
+
+.game-container {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-top: 50px;
+}
+
+.card {
+  margin: 20px auto;
+  max-width: 700px;
+  background: #2564eb14 ;
+  padding: 10px;
+  border-radius: 800px;
+}
+
+.letters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.letter-box {
+  background: #0162fe;
+  padding: 15px;
+  border-radius: 10px;
+  width: 30px;
+  font-weight: bold;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 60%;
+}
+
+button {
+  padding: 10px 15px;
+  background: #0162fe;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffffff58;
+}
+
+.found-word {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background: #000000;
+  border-radius: 6px;
+}
+
+.features-container {
+  margin-top: 70px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+
+  text-align: center;
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+
+.caixaFinal {
+  margin-top: 70px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.finalText {
+  width: 1050px;
+  padding: 20px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+
+  text-align: center;
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.2s ease;
+}
+
+.finalText h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.finalText p {
+  font-size: 1.2rem;
+  opacity: 0.8; /* opcional, queda más fino */
+}
+
+.caixaCriarConta {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.conteudoCaixaCriarConta {
+  background: #2563eb;
+  color: white;
+
+  padding: 12px 30px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  transition: all 0.3s ease;
+}
+
+/* quita estilos raros del <p> */
+.conteudoCaixaCriarConta p {
+  margin: 0;
+}
+
+/* hover */
+.conteudoCaixaCriarConta:hover {
+  background: #1e40af;
+  transform: scale(1.05);
+}
