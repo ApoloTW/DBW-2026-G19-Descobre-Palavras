@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between; /* logo izquierda, links derecha */
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -10,14 +10,18 @@
   font-size: 1.5rem;
   font-weight: bold;
   color:#fcf5f5;
+  margin-left: 150px;
 }
 
 .logo:hover {
-    color:#ffffff;
+    color: #2563eb;
+}
+.links {
+  margin-right: 120px;
 }
 
 .links a {
-  margin-left: 20px;
+  margin-left: 30px;
   text-decoration: none;
   color:#fcf5f5;
   font-weight: 500;
@@ -25,10 +29,9 @@
 }
 
 .links a:hover {
-  color: #ffffff;
-  font-size: 1.8rem;
+  color: #2563eb;
 }
 
 nav {
-    background-color: #d4cbcb;
+    background-color: #201d1d;
 }

@@ -7,7 +7,7 @@ function Navbar() {
         Descobre Palavras
       </div>
       <div className="links">
-        <Link to="/">Home</Link>
+        <Link to="/">Inicio</Link>
         <Link to="/login">Login</Link>
         <Link to="/about">Sobre Nós</Link>
       </div>
