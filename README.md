@@ -5,6 +5,7 @@ Projeto DBW 2025/2026
 
 Grupo 19
 Integrantes:
+
 José Miguel Farinha Fernandes - 2172622
 
 Juan Agustin Gomes Olim - 2030418
