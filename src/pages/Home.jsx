@@ -208,7 +208,6 @@ function Home() {
       <Jogo />
       <Features />
       <CaixaFinal />
-
     </div>
   )  
 }

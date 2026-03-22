@@ -6,21 +6,20 @@
 }
 
 .titulo h1 {
-    margin-top: 80px;
     font-size: 3.5rem;
-    color:white;
+    color: var(--text-primary);
 }
 
 .titulo h2 {
     margin-top: 1px;
     font-size: 1.4rem;
-    color:white;
+    color: var(--text-primary);
 }
 
 .titulo p {
     margin-top: 10px;
     font-size: 1rem;
-    color:white;
+    color: var(--text-primary);
 }
 
 .texto {
@@ -30,32 +29,31 @@
 }
 
 .caja {
-  background-color: #1e293b;
-  color: white;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
   padding: 5px 30px;
   border-radius: 12px;
-  text-decoration: none; /* quita el subrayado del link */
+  text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
 }
 
 .caja:hover {
-    color: black;
-  background-color: white;
+  color: var(--text-inverse);
+  background-color: var(--hover-bg-strong);
   transform: scale(1.05);
 }
 
-
 .game-container {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: var(--text-primary);
   margin-top: 50px;
 }
 
 .card {
   margin: 20px auto;
   max-width: 700px;
-  background: #2564eb14 ;
+  background: var(--card-transparent);
   padding: 10px;
   border-radius: 800px;
 }
@@ -68,11 +66,12 @@
 }
 
 .letter-box {
-  background: #0162fe;
+  background: var(--accent);
   padding: 15px;
   border-radius: 10px;
   width: 30px;
   font-weight: bold;
+  color: var(--text-primary);
 }
 
 .input-row {
@@ -86,27 +85,30 @@ input {
   border-radius: 8px;
   border: none;
   width: 60%;
+  background: var(--input-bg);
+  color: var(--text-primary);
 }
 
 button {
   padding: 10px 15px;
-  background: #0162fe;
+  background: var(--button-bg);
   border: none;
   border-radius: 8px;
-  color: white;
+  color: var(--button-text);
   cursor: pointer;
 }
 
 button:hover {
-  background: #ffffff58;
+  background: var(--button-hover);
 }
 
 .found-word {
   display: inline-block;
   margin: 5px;
   padding: 5px 10px;
-  background: #000000;
+  background: var(--found-word-bg);
   border-radius: 6px;
+  color: var(--text-primary);
 }
 
 .features-container {
@@ -122,8 +124,8 @@ button:hover {
   padding: 20px;
   border-radius: 24px;
 
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  background: var(--card-glass);
+  color: var(--text-primary);
 
   text-align: center;
   backdrop-filter: blur(8px);
@@ -140,7 +142,6 @@ button:hover {
   margin-bottom: 10px;
 }
 
-
 .caixaFinal {
   margin-top: 70px;
   display: flex;
@@ -154,8 +155,8 @@ button:hover {
   padding: 20px;
   border-radius: 24px;
 
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  background: var(--card-glass);
+  color: var(--text-primary);
 
   text-align: center;
   backdrop-filter: blur(8px);
@@ -170,7 +171,7 @@ button:hover {
 
 .finalText p {
   font-size: 1.2rem;
-  opacity: 0.8; /* opcional, queda más fino */
+  opacity: 0.8;
 }
 
 .caixaCriarConta {
@@ -180,8 +181,8 @@ button:hover {
 }
 
 .conteudoCaixaCriarConta {
-  background: #2563eb;
-  color: white;
+  background: var(--button-primary);
+  color: var(--button-text);
 
   padding: 12px 30px;
   border-radius: 12px;
@@ -192,13 +193,11 @@ button:hover {
   transition: all 0.3s ease;
 }
 
-/* quita estilos raros del <p> */
 .conteudoCaixaCriarConta p {
   margin: 0;
 }
 
-/* hover */
 .conteudoCaixaCriarConta:hover {
-  background: #1e40af;
+  background: var(--button-primary-hover);
   transform: scale(1.05);
 }

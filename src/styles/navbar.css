@@ -9,28 +9,29 @@
   top: 0;
   width: 100%;
 
-  background: #201d1d;  /* 👈 tu color original */
+  background: var(--navbar-bg);
   transition: all 0.3s ease;
 
   z-index: 1000;
 }
 
 .navbar.scrolled {
-  background: rgba(32, 29, 29, 0.4);  /* 👈 más transparente */
+  background: var(--navbar-bg-transparent);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--navbar-border);
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color:#fcf5f5;
+  color: var(--text-primary);
   margin-left: 150px;
 }
 
 .logo:hover {
-    color: #2563eb;
+  color: var(--accent);
 }
+
 .links {
   margin-right: 120px;
 }
@@ -38,11 +39,11 @@
 .links a {
   margin-left: 30px;
   text-decoration: none;
-  color:#fcf5f5;
+  color: var(--text-primary);
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .links a:hover {
-  color: #2563eb;
+  color: var(--accent);
 }

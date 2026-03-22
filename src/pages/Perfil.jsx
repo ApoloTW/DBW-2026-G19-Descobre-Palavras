@@ -41,11 +41,8 @@ function Verde() {
   )
 }
 
-
-function About() {
-  return (
-    <Verde />
-  )
+function Perfil() {
+    return (
+        <Verde />
+    )
 }
-
-export default About

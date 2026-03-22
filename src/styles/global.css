@@ -1,11 +1,49 @@
 :root {
+  /* Fondo y texto base */
   --bg-gradient: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
   --text-color: #e5e7eb;
+
+  /* Texto */
+  --text-primary: #ffffff;
+  --text-inverse: #000000;
+
+  /* Colores principales */
+  --accent: #0162fe;
+
+  /* Cards y superficies */
+  --card-bg: #1e293b;
+  --card-transparent: #2564eb14;
+  --card-glass: rgba(255, 255, 255, 0.08);
+
+  /* Botones */
+  --button-bg: #0162fe;
+  --button-text: #ffffff;
+  --button-hover: #ffffff58;
+
+  --button-primary: #2563eb;
+  --button-primary-hover: #1e40af;
+
+  /* Inputs */
+  --input-bg: #ffffff;
+
+  /* Elementos específicos */
+  --found-word-bg: #000000;
+
+  /* Hover */
+  --hover-bg-strong: #ffffff;
+
+  /* Navbar */
+  --navbar-bg: #201d1d;
+  --navbar-bg-transparent: rgba(32, 29, 29, 0.4);
+  --navbar-border: rgba(255,255,255,0.08);
 }
+
 html {
   height: 100%;
   margin: 0;
+  margin-top: 80px;
 }
+
 body {
   padding-top: 30px;
   display: flex;
