@@ -1,0 +1,19 @@
+:root {
+
+}
+.titulo h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.segundoTitulo h2 {
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: rgb(255, 255, 255);
+}
