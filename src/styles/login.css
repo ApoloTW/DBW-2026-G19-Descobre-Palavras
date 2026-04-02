@@ -1,0 +1,109 @@
+:root {
+
+}
+
+.loginTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    width: 100%;
+    color: white;
+}
+
+.textLoginBox {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 5px;
+    margin-top: -10px;
+    color: rgb(255, 255, 255);
+}
+
+.textNaoTensConta {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.registate  {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 5px;
+    font-weight: bold;
+    color: rgb(146, 29, 29)
+}
+
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.loginBoxSmall {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 35px;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 15px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.inputIcon {
+    font-size: 18px;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.loginInput {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    font-size: 15px;
+    color: white;
+}
+
+.loginInput::placeholder {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.loginButton {
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: -10px;
+    margin-bottom: 25px;
+    padding: 15px;
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    /*background: red;*/
+}

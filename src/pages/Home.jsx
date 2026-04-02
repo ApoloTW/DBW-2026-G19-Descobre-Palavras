@@ -30,7 +30,7 @@ function ButtonJogar() {
   return (
     <div className="texto">
       <Link to="/" className="caja">
-        <p>Inicie sessão para jogar</p>
+        <p>Inicia sessão para jogar</p>
       </Link>
     </div>
   )

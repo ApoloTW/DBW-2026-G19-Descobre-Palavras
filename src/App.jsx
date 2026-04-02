@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
 import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 import About from "./pages/About"
 import './styles/global.css'
 
@@ -15,6 +17,8 @@ function App() {
       <main className="content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
