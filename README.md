@@ -15,7 +15,7 @@ https://safe-strain-34583542.figma.site/
 ------------------------------------------------------------------------------------------------------------------
 
 Como vamos trabalhar
-React (Frontend: Responsável por toda a visualização do site. Utilizar o mínimo possível de JavaScript para que o site seja leve. Criar o formulário de login. Quando o utilizador clica no botão, o React recolhe o e-mail e a password através do useState.
+React-Frontend: Responsável por toda a visualização do site. Utilizar o mínimo possível de JavaScript para que o site seja leve. Criar o formulário de login. Quando o utilizador clica no botão, o React recolhe o e-mail e a password através do useState.
 
 JavaScript (Mensageiro): A partir do React, envia os dados para o servidor Node.js.
 
