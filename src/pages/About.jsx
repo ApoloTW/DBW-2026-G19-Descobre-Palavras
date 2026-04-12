@@ -1,6 +1,6 @@
 import '../styles/about.css'
 
-// Componentes de About
+
 function SobreNos() {
   return (
     <div className="mainTitle">
@@ -87,7 +87,6 @@ function OsNossosValores() {
   )
 }
 
-// Combinamos todo en About
 function About() {
   return (
     <div>

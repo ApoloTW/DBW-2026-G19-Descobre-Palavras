@@ -2,10 +2,25 @@ import '../styles/register.css'
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
-function CriarConta() {
+function CriarConta({ setUsuario }) {
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+
+  function criarConta() {
+    if (!username || !email || !password) {
+      alert("Preenche todos os campos")
+      return
+    }
+
+    setUsuario({
+      username: username,
+      email: email
+    })
+
+    navigate("/play")
+  }
 
   return(
     <div className="loginBox">
@@ -16,8 +31,8 @@ function CriarConta() {
         <span className="inputIcon">👤</span>
           <input
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             className="loginInput"
             placeholder="O teu nome"
           />
@@ -47,7 +62,7 @@ function CriarConta() {
           />
         </div>
 
-      <button className="loginButton" onClick={() => navigate("/home")}>Criar Conta</button>
+      <button className="loginButton" onClick={criarConta}>Criar Conta</button>
 
       <p className="textNaoTensConta">Já tens conta?? <Link to="/login">Inicia sessão</Link></p>
 
@@ -55,12 +70,12 @@ function CriarConta() {
   )
 }
 
-function Register() {
+function Register({ setUsuario }) {
   return (
     <div>
-      <CriarConta/>
+      <CriarConta setUsuario={setUsuario} />
     </div>
-  )  
+  )
 }
 
 export default Register

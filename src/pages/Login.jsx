@@ -2,10 +2,24 @@ import '../styles/login.css'
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
-function IniciarSeassao() {
+function IniciarSeassao({ setUsuario }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+
+  function cuenta() {
+    if (!email || !password) {
+      alert("Preenche o email e a palavra-passe")
+      return
+    }
+
+    setUsuario({
+      nombre: email,
+      email: email
+    })
+
+    navigate("/play")
+  }
 
   return(
     <div className="loginBox">
@@ -35,7 +49,7 @@ function IniciarSeassao() {
           />
         </div>
 
-      <button className="loginButton" onClick={() => navigate("/home")}>Iniciar Sessão</button>
+      <button className="loginButton" onClick={cuenta}>Iniciar Sessão</button>
 
       <p className="textNaoTensConta">Não tens conta? <Link to="/register">Regista-te</Link></p>
 
@@ -43,12 +57,12 @@ function IniciarSeassao() {
   )
 }
 
-function Login() {
+function Login({ setUsuario }) {
   return (
     <div>
-      <IniciarSeassao/>
+      <IniciarSeassao setUsuario={setUsuario} />
     </div>
-  )  
+  )
 }
 
 export default Login

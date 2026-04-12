@@ -1,0 +1,273 @@
+:root {
+
+}
+
+.perfilPage {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.perfilGrid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.95fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.perfilColunaEsquerda,
+.perfilColunaDireita {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.mainTitleProfile {
+    text-align: center;
+    width: 100%;
+    color: white;
+    margin-bottom: 28px;
+}
+
+.mainTitleProfile h1 {
+    font-size: 37px;
+    margin: 0;
+}
+
+.boxTitleProfile {
+    text-align: left;
+    font-size: 22px;
+    margin: 0 0 20px 0;
+    color: white;
+}
+
+.boxTitleInnerProfile {
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.boxTitleStatsProfile {
+    text-align: left;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0 0 16px 0;
+    color: white;
+}
+
+.boxTitlePoints {
+    text-align: left;
+    font-size: 37px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    width: 100%;
+    color: white;
+}
+
+.textBoxProfile {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.textBoxStatsProfile {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 4px 0;
+    color: rgb(255, 255, 255);
+}
+
+.nameUserProfile {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
+
+.boxInfoProfile {
+    width: 100%;
+    margin: 0;
+    padding: 28px;
+    border-radius: 15px;
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-sizing: border-box;
+}
+
+.boxInfoRowProfile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 8px;
+}
+
+.boxInfoSmallProfile {
+    padding: 28px;
+    border-radius: 15px;
+    color: white;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.boxRecordProfile {
+    min-height: 170px;
+}
+
+.fundoGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.fundoCard {
+    position: relative;
+    width: 165px;
+    height: 90px;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: 0.2s;
+    border: 2px solid transparent;
+}
+
+.fundoCard:hover {
+    transform: scale(1.03);
+}
+
+.nomeFundo {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.previewVermelho {
+    background: radial-gradient(circle at center, #250000 10%, #7a0000 100%);
+}
+
+.previewAzul {
+    background: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
+}
+
+.previewPurpura {
+    background: radial-gradient(circle at center, #2c002c 10%, #800080 100%);
+}
+
+.previewVerde {
+    background: radial-gradient(circle at center, #002400 10%, #006400 100%);
+}
+
+.fundoCard.ativo {
+    border: 4px solid white;
+}
+
+.checkFundo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #00c83a;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .perfilGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .boxInfoRowProfile {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.nameUserProfile {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 18px 0;
+    color: white;
+}
+
+.editNameButton {
+    background: transparent;
+    border: none;
+    color: #ff9ea1;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+}
+
+.editNameButton:hover {
+    opacity: 0.85;
+}
+
+.editNameArea {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.inputNomeProfile {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.20);
+    background: rgba(255,255,255,0.18);
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.inputNomeProfile::placeholder {
+    color: rgba(255,255,255,0.65);
+}
+
+.editButtonsRow {
+    display: flex;
+    gap: 12px;
+}
+
+.saveButton {
+    flex: 1;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 15px;
+    background: #07a63f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    opacity: 0.92;
+}
+
+.cancelButton {
+    flex: 1;
+    padding: 12px 18px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.20);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancelButton:hover {
+    background: rgba(255,255,255,0.14);
+}
