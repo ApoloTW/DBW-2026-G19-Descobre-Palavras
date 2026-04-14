@@ -2,8 +2,7 @@ import { Link } from "react-router-dom"
 import { useState } from 'react';
 import '../styles/about.css'
 
-// Función para cambiar tema a verde
-function ChangeToGreen() {
+function TrocarVerde() {
   document.documentElement.style.setProperty(
     '--bg-gradient',
     'radial-gradient(circle at center, #16a34a 0%, #14532d 40%, #052e16 100%)',
@@ -17,13 +16,12 @@ function ChangeToGreen() {
 
 function Verde() {
   return (
-    <button onClick={ChangeToGreen}>
+    <button onClick={TrocarVerde}>
       Tema Verde
     </button>
   )
 }
 
-// Componentes de About
 function Titulo() {
   return (
     <div className="titulo">
