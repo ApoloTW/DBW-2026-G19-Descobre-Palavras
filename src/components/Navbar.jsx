@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom"
 import "../styles/navbar.css"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 
-function Navbar() {
+function Navbar({ usuario, setUsuario }) {
+  function cerrarSesion() {
+    setUsuario(null)
+  }
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,9 +24,16 @@ function Navbar() {
       </div>
 
       <div className="links">
-        <Link to="/">Inicio</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/about">Sobre Nós</Link>
+        <Link to="/">🏠︎ Início</Link>
+
+        {usuario ? (<>
+        <Link to="/perfil">⛭ Perfil</Link>
+        <Link to="/ranking">✪ Ranking</Link>
+        <button onClick={cerrarSesion}>➜] Sair</button></>
+        ) : ( <>
+        <Link to="/login">◉ Login</Link>
+        <Link to="/about">ⓘ Sobre Nós</Link></>
+        )}
       </div>
     </nav>
   )

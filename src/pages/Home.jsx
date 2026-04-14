@@ -26,19 +26,29 @@ function Explicacao() {
   )
 }
 
-function ButtonJogar() {
-  return (
-    <div className="texto">
-      <Link to="/" className="caja">
-        <p>Inicie sessão para jogar</p>
-      </Link>
-    </div>
-  )
+function ButtonJogar({ usuario }) {
+    if (usuario) {
+      return (
+        <div className="texto">
+          <Link to="/play" className="caja">
+          <p>▷ Jogar Agora!</p>
+          </Link>
+        </div>
+      )
+    } else {
+      return (
+        <div className="texto">
+          <Link to="/login" className="caja">
+          <p>Inicia sessão para jogar</p>
+          </Link>
+        </div>
+      )
+    }
 }
 
 function useGame() {
   const mainWord = "ARMARIO";
-  const validWords = ["ARMA", "RIO", "MAR"];
+  const validWords = ["ARMA", "RIO", "MAR", "MARIO"];
 
   const [input, setInput] = useState("");
   const [foundWords, setFoundWords] = useState([]);
@@ -179,7 +189,7 @@ function TextoFinal({titulo, texto}) {
       <h3>{titulo}</h3>
       <p>{texto}</p>
       <div className="caixaCriarConta">
-        <Link to="/" className="conteudoCaixaCriarConta">
+        <Link to="/login" className="conteudoCaixaCriarConta">
           <p>Inicie sessão para jogar</p>
         </Link>
       </div>
@@ -187,27 +197,31 @@ function TextoFinal({titulo, texto}) {
   )
 }
 
-function CaixaFinal() {
+function CaixaFinal({ usuario }) {
   return (
-    <div className="caixaFinal">
-      <TextoFinal 
-        titulo="Pronto para o desafio?" 
-        texto="Cria a tua conta e começa a jogar agora" 
-      />
-    </div>
+    <>
+      {!usuario && (
+      <div className="caixaFinal">
+        <TextoFinal 
+          titulo="Pronto para o desafio?" 
+          texto="Cria a tua conta e começa a jogar agora" 
+        />
+      </div>
+      )}
+    </>
   );
 }
 
-function Home() {
+function Home({ usuario }) {
   return (
     <div>
       <Titulo />
       <TextoASeguir />
       <Explicacao />
-      <ButtonJogar />
+      <ButtonJogar usuario={usuario} />
       <Jogo />
       <Features />
-      <CaixaFinal />
+      <CaixaFinal usuario={usuario} />
     </div>
   )  
 }

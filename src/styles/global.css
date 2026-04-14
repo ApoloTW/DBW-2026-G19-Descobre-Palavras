@@ -19,7 +19,6 @@
   --button-bg: #0162fe;
   --button-text: #ffffff;
   --button-hover: #ffffff58;
-
   --button-primary: #2563eb;
   --button-primary-hover: #1e40af;
 
@@ -38,6 +37,20 @@
   --navbar-border: rgba(255,255,255,0.08);
 }
 
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text-color);
+}
+
+/**
 html {
   height: 100%;
   margin: 0;
@@ -45,23 +58,54 @@ html {
 }
 
 body {
+  font-family: 'Segoe UI';
   padding-top: 30px;
   display: flex;
   flex-direction: column;
   height: 100%;
   margin: 0;
   min-height: 100vh;
+
+  /*
+
   background-attachment: fixed;
   background: var(--bg-gradient);
+
+
+  
   color: var(--text-color);
-}
+} 
 
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100%;
 }
+**/
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .content {
   flex: 1;
+  padding-top: 110px;
+}
+
+.app.fundoVermelho {
+  background: radial-gradient(circle at center, #250000 10%, #7a0000 100%);
+}
+
+.app.fundoAzul {
+  background: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
+}
+
+.app.fundoPurpura {
+  background: radial-gradient(circle at center, #2c002c 10%, #800080 100%);
+}
+
+.app.fundoVerde {
+  background: radial-gradient(circle at center, #002400 10%, #006400 100%);
 }

@@ -2,16 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 20px 20px;
-
   position: fixed;
   top: 0;
   width: 100%;
-
   background: var(--navbar-bg);
   transition: all 0.3s ease;
-
   z-index: 1000;
 }
 
@@ -26,6 +22,7 @@
   font-weight: bold;
   color: var(--text-primary);
   margin-left: 150px;
+  cursor: pointer;
 }
 
 .logo:hover {
@@ -34,16 +31,41 @@
 
 .links {
   margin-right: 120px;
+  display: flex;
+  align-items: center;
 }
 
-.links a {
+.links a,
+.links button {
   margin-left: 30px;
   text-decoration: none;
   color: var(--text-primary);
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 1rem;
+  font-family: inherit;
   transition: color 0.2s;
 }
 
-.links a:hover {
+.links button {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.links a:hover,
+.links button:hover {
   color: var(--accent);
+}
+
+.links button:focus,
+.links button:active {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
