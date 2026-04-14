@@ -184,6 +184,30 @@ function RecordePessoal() {
   )
 }
 
+
+function ChangeToGreen() {
+  document.documentElement.style.setProperty(
+    '--bg-gradient',
+    'radial-gradient(circle at center, #16a34a 0%, #14532d 40%, #052e16 100%)',
+  );
+  document.documentElement.style.setProperty('--card-bg', '#5c9d1f');
+  document.documentElement.style.setProperty('--accent', '#5c9d1f');
+  document.documentElement.style.setProperty('--button-bg', '#5c9d1f');
+  document.documentElement.style.setProperty('--button-primary', '#5c9d1f');
+  document.documentElement.style.setProperty('--button-primary-hover', '#14532d');
+}
+
+
+
+function Verde() {
+  return (
+    <button onClick={ChangeToGreen}>
+      Tema Verde
+    </button>
+  )
+}
+
+
 function Perfil({ usuario, setFundoAtual }) {
   return (
     <div className="perfilPage">
@@ -198,7 +222,7 @@ function Perfil({ usuario, setFundoAtual }) {
 
         <div className="perfilColunaDireita">
           <Estatisticas />
-          <FundoJogo setFundoAtual={setFundoAtual} />
+          <Verde />
         </div>
       </div>
     </div>
@@ -206,69 +230,3 @@ function Perfil({ usuario, setFundoAtual }) {
 }
 
 export default Perfil
-
-/*
-
-
-function ChangeToGreen() {
-    document.documentElement.style.setProperty(
-      '--bg-gradient',
-      'radial-gradient(circle at center, #16a34a 0%, #14532d 40%, #052e16 100%)',
-    );
-    document.documentElement.style.setProperty(
-      '--card-bg',
-      '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-    '--accent',
-    '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-      '--button-bg',
-      '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-      '--button-primary',
-      '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-      '--button-primary-hover',
-      '#14532d'
-    );
-}
-
-function Verde() {
-  return (
-    <button onClick={ChangeToGreen}>
-      Tema Verde
-    </button>
-  )
-}
-
-
-// Función para cambiar tema a verde
-function ChangeToGreen() {
-  document.documentElement.style.setProperty(
-    '--bg-gradient',
-    'radial-gradient(circle at center, #16a34a 0%, #14532d 40%, #052e16 100%)',
-  );
-  document.documentElement.style.setProperty('--card-bg', '#5c9d1f');
-  document.documentElement.style.setProperty('--accent', '#5c9d1f');
-  document.documentElement.style.setProperty('--button-bg', '#5c9d1f');
-  document.documentElement.style.setProperty('--button-primary', '#5c9d1f');
-  document.documentElement.style.setProperty('--button-primary-hover', '#14532d');
-}
-
-function Verde() {
-  return (
-    <button onClick={ChangeToGreen}>
-      Tema Verde
-    </button>
-  )
-}
-
-*/

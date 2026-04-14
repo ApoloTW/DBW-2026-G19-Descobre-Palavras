@@ -99,7 +99,8 @@ button {
 }
 
 button:hover {
-  background: var(--button-hover);
+  background: var(--hover-bg-strong);
+  color: var(--text-inverse);
 }
 
 .found-word {
@@ -200,6 +201,7 @@ button:hover {
 }
 
 .conteudoCaixaCriarConta:hover {
-  background: var(--button-primary-hover);
+  background: var(--hover-bg-strong);
   transform: scale(1.05);
+  color: var(--text-inverse); 
 }

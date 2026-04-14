@@ -2,14 +2,6 @@ import '../styles/about.css'
 
 function SobreNos() {
   return (
-    <p className="text">
-      Descobre quem somos e o que nos inspira
-    </p>
-  )
-}
-
-function Titulo() {
-  return (
     <div className="mainTitle">
       <h1>Sobre Nós</h1>
     </div>
