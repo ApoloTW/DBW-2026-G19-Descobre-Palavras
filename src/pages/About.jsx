@@ -1,6 +1,5 @@
 import '../styles/about.css'
 
-
 function SobreNos() {
   return (
     <div className="mainTitle">

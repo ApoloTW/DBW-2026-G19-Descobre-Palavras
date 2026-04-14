@@ -10,6 +10,14 @@ function MeuPerfil() {
 }
 
 function Avatar() {
+  const avatars = [
+    { id: 1, image: "/avatars/avatar1.png", unlocked: true, selected: true },
+    { id: 2, image: "/avatars/avatar2.png", unlocked: true, selected: false },
+    { id: 3, image: "/avatars/avatar3.png", unlocked: true, selected: false },
+    { id: 4, image: "/avatars/avatar4.png", unlocked: false, selected: false },
+    { id: 5, image: "/avatars/avatar5.png", unlocked: false, selected: false },
+  ];
+  
   return (
     <div className="boxInfoProfile">
       <h1 className="boxTitleProfile">🖼️ Avatar</h1>
@@ -71,7 +79,7 @@ function NomeUtilizador({ usuario }) {
   const guardarNome = () => {
     console.log("Nuevo nombre:", novoNome);
 
-    /* Aquí más adelante harás la llamada al backend o actualizarás el usuario real */
+    /* más adelante la llamada al backend o actualizar el usuario real */
 
     setEditando(false);
   };
@@ -89,11 +97,7 @@ function NomeUtilizador({ usuario }) {
         <div>
           <p className="nameUserProfile">{nomeAtual}</p>
 
-          <button
-            type="button"
-            className="editNameButton"
-            onClick={iniciarEdicao}
-          >
+          <button type="button" className="editNameButton" onClick={iniciarEdicao}>
             Alterar nome
           </button>
         </div>
@@ -108,19 +112,11 @@ function NomeUtilizador({ usuario }) {
           />
 
           <div className="editButtonsRow">
-            <button
-              type="button"
-              className="saveButton"
-              onClick={guardarNome}
-            >
+            <button type="button" className="saveButton" onClick={guardarNome}>
               Guardar
             </button>
 
-            <button
-              type="button"
-              className="cancelButton"
-              onClick={cancelarEdicao}
-            >
+            <button type="button" className="cancelButton" onClick={cancelarEdicao}>
               Cancelar
             </button>
           </div>
@@ -132,8 +128,8 @@ function NomeUtilizador({ usuario }) {
 
 function FundoJogo({ setFundoAtual }) {
   const fundos = [
-    { id: 1, nome: "Vermelho Escuro", preview: "previewVermelho", classe: "fundoVermelho" },
-    { id: 2, nome: "Azul Escuro", preview: "previewAzul", classe: "fundoAzul" },
+    { id: 1, nome: "Azul Escuro", preview: "previewAzul", classe: "fundoAzul" },
+    { id: 2, nome: "Vermelho Escuro", preview: "previewVermelho", classe: "fundoVermelho" },
     { id: 3, nome: "Púrpura", preview: "previewPurpura", classe: "fundoPurpura" },
     { id: 4, nome: "Verde Escuro", preview: "previewVerde", classe: "fundoVerde" }
   ];
@@ -206,69 +202,3 @@ function Perfil({ usuario, setFundoAtual }) {
 }
 
 export default Perfil
-
-/*
-
-
-function ChangeToGreen() {
-    document.documentElement.style.setProperty(
-      '--bg-gradient',
-      'radial-gradient(circle at center, #16a34a 0%, #14532d 40%, #052e16 100%)',
-    );
-    document.documentElement.style.setProperty(
-      '--card-bg',
-      '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-    '--accent',
-    '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-      '--button-bg',
-      '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-      '--button-primary',
-      '#5c9d1f'
-    );
-
-    document.documentElement.style.setProperty(
-      '--button-primary-hover',
-      '#14532d'
-    );
-}
-
-function Verde() {
-  return (
-    <button onClick={ChangeToGreen}>
-      Tema Verde
-    </button>
-  )
-}
-
-
-// Función para cambiar tema a verde
-function ChangeToGreen() {
-  document.documentElement.style.setProperty(
-    '--bg-gradient',
-    'radial-gradient(circle at center, #16a34a 0%, #14532d 40%, #052e16 100%)',
-  );
-  document.documentElement.style.setProperty('--card-bg', '#5c9d1f');
-  document.documentElement.style.setProperty('--accent', '#5c9d1f');
-  document.documentElement.style.setProperty('--button-bg', '#5c9d1f');
-  document.documentElement.style.setProperty('--button-primary', '#5c9d1f');
-  document.documentElement.style.setProperty('--button-primary-hover', '#14532d');
-}
-
-function Verde() {
-  return (
-    <button onClick={ChangeToGreen}>
-      Tema Verde
-    </button>
-  )
-}
-
-*/

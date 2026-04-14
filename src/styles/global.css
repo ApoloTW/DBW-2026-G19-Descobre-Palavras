@@ -46,7 +46,7 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI';
   color: var(--text-color);
 }
 
@@ -94,12 +94,12 @@ body {
   padding-top: 110px;
 }
 
-.app.fundoVermelho {
-  background: radial-gradient(circle at center, #250000 10%, #7a0000 100%);
-}
-
 .app.fundoAzul {
   background: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
+}
+
+.app.fundoVermelho {
+  background: radial-gradient(circle at center, #250000 10%, #7a0000 100%);
 }
 
 .app.fundoPurpura {

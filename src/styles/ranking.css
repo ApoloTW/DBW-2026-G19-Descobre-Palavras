@@ -22,20 +22,87 @@
     color: rgb(255, 255, 255);
 }
 
-.textBoxRank {
+.titleInfoTime {
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+}
+
+.buttonInfoTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+.boxInfoTime {
+    padding: 0px 35px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    cursor: pointer;
+}
+
+.boxInfoTime.active {
+    background: red;
+}
+
+.textBoxNumberRank {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.textBoxUserName {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.textBoxDate {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.textBoxStatsInfo {
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
     color: rgb(255, 255, 255);
 }
 
-.boxInfoTime {
+.textBoxStats {
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.columnInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.boxInfoRank {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    max-width: 330px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 930px;
+    margin: 10px auto;
+    padding: 20px 28px;
     border-radius: 15px;
     width: 100%;
     color: white;
@@ -44,19 +111,37 @@
     box-sizing: border-box;
 }
 
-.boxInfoRank {
+.boxInfoRankLeft {
     display: flex;
-    justify-content: center;
     align-items: center;
-    max-width: 930px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 15px;
-    width: 100%;
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-sizing: border-box;
+    gap: 18px;
+}
+
+.boxInfoRankRight {
+    display: flex;
+    gap: 40px;
+}
+
+.boxInfoRank.first {
+    background: linear-gradient(90deg, #6A2A00 0%, #542200 60%, #4A1A00 100%);
+    border: 2px solid #C98A00;
+}
+
+.boxInfoRank.second {
+    background: linear-gradient(90deg, #4a4a4a 0%, #3a3a3a 60%, #2f2f2f 100%);
+    border: 2px solid #7C6E7A;
+}
+
+.boxInfoRank.third {
+    background: linear-gradient(90deg, #641300 0%, #4C0D00 60%, #3E0900 100%);
+    border: 2px solid #C85A00;
+}
+
+.textBoxFinalText {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: rgb(255, 255, 255);
 }
 
 .boxInfoFinalText {
@@ -64,7 +149,7 @@
     justify-content: center;
     align-items: center;
     max-width: 930px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 20px;
     border-radius: 15px;
     width: 100%;

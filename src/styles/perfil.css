@@ -271,3 +271,10 @@
 .cancelButton:hover {
     background: rgba(255,255,255,0.14);
 }
+
+.avatarImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 12px;
+}
