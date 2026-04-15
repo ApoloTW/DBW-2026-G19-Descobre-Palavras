@@ -10,6 +10,7 @@ function MeuPerfil() {
 }
 
 function Avatar() {
+  /*
   const avatars = [
     { id: 1, image: "/avatars/avatar1.png", unlocked: true, selected: true },
     { id: 2, image: "/avatars/avatar2.png", unlocked: true, selected: false },
@@ -17,6 +18,7 @@ function Avatar() {
     { id: 4, image: "/avatars/avatar4.png", unlocked: false, selected: false },
     { id: 5, image: "/avatars/avatar5.png", unlocked: false, selected: false },
   ];
+  */
   
   return (
     <div className="boxInfoProfile">
@@ -218,6 +220,7 @@ function Perfil({ usuario, setFundoAtual }) {
 
         <div className="perfilColunaDireita">
           <Estatisticas />
+          <FundoJogo setFundoAtual={setFundoAtual} />
           <Verde />
         </div>
       </div>
@@ -225,8 +228,4 @@ function Perfil({ usuario, setFundoAtual }) {
   )
 }
 
-<<<<<<< HEAD
 export default Perfil
-=======
-export default Perfil
->>>>>>> 5c3b3264e729140996ad0ca87ae2b98751e277ef
