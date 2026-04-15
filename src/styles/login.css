@@ -105,4 +105,11 @@
     padding: 15px;
     border-radius: 15px;
     color: rgb(255, 255, 255);
+    /*background: red;*/
+}
+
+.loginButton:hover {
+    color: var(--text-inverse);
+    background-color: var(--hover-bg-strong);
+    transform: scale(1.05);
 }

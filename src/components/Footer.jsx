@@ -6,7 +6,8 @@ function Footer() {
       <p>
         © 2025-2026 @UMA - Descobre palavras <br />
         DBW Grupo 19 <br />
-        Juan Olim - Jose Farinha
+        Jose Farinha <br />
+        Juan Olim 2030418 <br /> 
       </p>
     </footer>
   )

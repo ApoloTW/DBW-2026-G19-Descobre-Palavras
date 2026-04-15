@@ -71,6 +71,7 @@
 }
 
 .boxInfoPlay:hover {
+    background: rgba(255, 255, 255, 0.13); /* ligeramente más visible */
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
