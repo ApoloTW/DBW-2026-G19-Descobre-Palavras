@@ -23,46 +23,46 @@ function CriarConta({ setUsuario }) {
   }
 
   return(
-    <div className="loginBox">
-      <h2 className="loginTitle">Criar Conta</h2>
+    <div className="registerBox">
+      <h2 className="registerTitle">Criar Conta</h2>
 
-      <p className="textLoginBox">Nome de Utilizador</p>
-        <div className="loginBoxSmall">
+      <p className="textRegisterBox">Nome de Utilizador</p>
+        <div className="registerBoxSmall">
         <span className="inputIcon">👤</span>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="loginInput"
+            className="registerInput"
             placeholder="O teu nome"
           />
         </div>
 
-      <p className="textLoginBox">Email</p>
-        <div className="loginBoxSmall">
+      <p className="textRegisterBox">Email</p>
+        <div className="registerBoxSmall">
         <span className="inputIcon">📩</span>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="loginInput"
+            className="registerInput"
             placeholder="teu@gmail.com"
           />
         </div>
 
-      <p className="textLoginBox">Palavra-passe</p>
-        <div className="loginBoxSmall">
+      <p className="textRegisterBox">Palavra-passe</p>
+        <div className="registerBoxSmall">
         <span className="inputIcon">🔒</span>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="loginInput"
+            className="registerInput"
             placeholder="••••••••"
           />
         </div>
 
-      <button className="loginButton" onClick={criarConta}>Criar Conta</button>
+      <button className="registerButton" onClick={criarConta}>Criar Conta</button>
 
       <p className="textNaoTensConta">Já tens conta?? <Link to="/login">Inicia sessão</Link></p>
 

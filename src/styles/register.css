@@ -2,7 +2,7 @@
 
 }
 
-.loginTitle {
+.registerTitle {
     text-align: center;
     font-weight: bold;
     font-size: 30px;
@@ -12,7 +12,7 @@
     color: white;
 }
 
-.textLoginBox {
+.textRegisterBox {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
@@ -46,12 +46,12 @@
     color: rgb(146, 29, 29)
 }
 
-.loginBox {
+.registerBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 400px;
-    margin: 150px auto;
+    margin: 100px auto;
     padding: 30px;
     border-radius: 15px;
     width: 100%;
@@ -60,7 +60,7 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.loginBoxSmall {
+.registerBoxSmall {
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -79,7 +79,7 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-.loginInput {
+.registerInput {
     border: none;
     outline: none;
     background: transparent;
@@ -88,12 +88,12 @@
     color: white;
 }
 
-.loginInput::placeholder {
+.registerInput::placeholder {
     font-size: 15px;
     color: rgba(255, 255, 255, 0.75);
 }
 
-.loginButton {
+.registerButton {
     text-align: center;
     cursor: pointer;
     font-weight: bold;

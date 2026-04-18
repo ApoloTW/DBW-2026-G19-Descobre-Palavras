@@ -1,5 +1,11 @@
 import '../styles/perfil.css'
 import { useState } from 'react';
+import avatar1 from '../assets/avatars/avatar1.png'
+import avatar2 from '../assets/avatars/avatar2.png'
+import avatar3 from '../assets/avatars/avatar3.png'
+import avatar4 from '../assets/avatars/avatar4.png'
+import avatar5 from '../assets/avatars/avatar5.png'
+import avatar6 from '../assets/avatars/avatar6.png'
 
 function MeuPerfil() {
   return (
@@ -9,22 +15,47 @@ function MeuPerfil() {
   )
 }
 
-function Avatar() {
-  /*
-  const avatars = [
-    { id: 1, image: "/avatars/avatar1.png", unlocked: true, selected: true },
-    { id: 2, image: "/avatars/avatar2.png", unlocked: true, selected: false },
-    { id: 3, image: "/avatars/avatar3.png", unlocked: true, selected: false },
-    { id: 4, image: "/avatars/avatar4.png", unlocked: false, selected: false },
-    { id: 5, image: "/avatars/avatar5.png", unlocked: false, selected: false },
+function Avatar({ setAvatar }) {
+  const avatares = [
+    { id: 1, image: avatar1 },
+    { id: 2, image: avatar2 },
+    { id: 3, image: avatar3 },
+    { id: 4, image: avatar4 },
+    { id: 5, image: avatar5 },
+    { id: 6, image: avatar6 },
   ];
-  */
+
+  const [avatarSelecionado, setAvatarSelecionado] = useState(avatares[0]);
   
   return (
     <div className="boxInfoProfile">
       <h1 className="boxTitleProfile">🖼️ Avatar</h1>
 
-      <p className="textBoxProfile">Desbloqueia avatares ao ganhar conquistas</p>
+      <div className="fundoGrid">
+        {avatares.map((avatar) => (
+          <div
+            key={avatar.id}
+            className={`avatarItem ${
+              avatarSelecionado.id === avatar.id ? "selecionado" : ""
+            }`}
+            onClick={() => {
+              setAvatarSelecionado(avatar);
+              setAvatar(avatar.image);
+            }}>
+            <img
+              src={avatar.image}
+              alt={`Avatar ${avatar.id}`}
+              className="avatarImage"
+            />
+          
+            {avatarSelecionado.id === avatar.id && (
+              <div className="checkAvatar">✓</div>
+            )}
+          </div>
+
+        ))}
+      </div>
+      <p className="textBoxProfile">Escolhe o teu Avatar</p>
     </div>
   )
 }
@@ -163,9 +194,7 @@ function FundoJogo({ setFundoAtual }) {
         ))}
       </div>
 
-      <p className="textBoxProfile">
-        Pré-visualização atual - Este fundo será aplicado durante as tuas partidas
-      </p>
+      <p className="textBoxProfile">Pré-visualização atual - Este fundo será aplicado durante as tuas partidas</p>
     </div>
   )
 }
@@ -206,14 +235,14 @@ function Verde() {
 }
 
 
-function Perfil({ usuario, setFundoAtual }) {
+function Perfil({ usuario, setFundoAtual, setAvatar }) {
   return (
     <div className="perfilPage">
       <MeuPerfil />
 
       <div className="perfilGrid">
         <div className="perfilColunaEsquerda">
-          <Avatar />
+          <Avatar setAvatar={ setAvatar }/>
           <NomeUtilizador usuario={usuario}/>
           <RecordePessoal />
         </div>

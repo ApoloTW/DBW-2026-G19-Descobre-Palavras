@@ -169,6 +169,10 @@
 }
 
 .checkFundo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
     position: absolute;
     top: 8px;
     right: 8px;
@@ -177,10 +181,6 @@
     border-radius: 50%;
     background: #00c83a;
     color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 @media (max-width: 900px) {
@@ -272,9 +272,43 @@
     background: rgba(255,255,255,0.14);
 }
 
+.avatarItem {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 120px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.avatarItem:hover {
+    transform: scale(1.05);
+}
+
+.avatarItem.selecionado {
+    border: 2px solid white;
+}
+
 .avatarImage {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border-radius: 12px;
+}
+
+.checkAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #00c83a;
+    color: white;
 }
