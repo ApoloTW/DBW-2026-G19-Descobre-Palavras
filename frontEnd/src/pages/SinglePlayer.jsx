@@ -1,23 +1,17 @@
 import '../styles/singleplayer.css'
-import { Link } from "react-router-dom"
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 
-function ModoIndividual() {
-    return (
-        <div>
-          <h2>Modo Individual</h2>
-        </div>
-    )
-}
+import { useScore } from '../hooks/useScore';
+import { useTemporizador } from '../hooks/useTemporizador';
+import {useWordGame} from '../hooks/useWordGame';
 
-
-function useGame() {
-  const bancoPalavras = {
+const bancoPalavras = {
     "ARMARIO": ["ARMA", "RIO", "MAR", "MARIO"],
     "PLANETA": ["PLAN", "ANTE", "LANA", "NETA", "PALA", "TELA"],
     "CASTILLO": ["TILO", "LISO", "CAST", "SAIL", "COLA", "CALLO"],
   };
 
+function useWordGame(bancoPalavras) {
   const listaLlaves = Object.keys(bancoPalavras);
   const [indicePalabra, setIndicePalabra] = useState(0);
 
@@ -27,29 +21,10 @@ function useGame() {
   const [input, setInput] = useState("");
   const [foundWords, setFoundWords] = useState([]);
 
-  // Función para avanzar
-  const proximaPalabra = () => {
-    const siguienteIndice = (indicePalabra + 1) % listaLlaves.length;
-    setIndicePalabra(siguienteIndice);
+  const nextWord = () => {
+    setIndicePalabra(i => (i + 1) % listaLlaves.length);
     setFoundWords([]);
     setInput("");
-  };
-
-  const checkWord = () => {
-    const palabraLimpia = input.toUpperCase().trim();
-
-    if (!validWords.includes(palabraLimpia)) return "invalid";
-    if (foundWords.includes(palabraLimpia)) return "duplicate";
-
-    const nuevasEncontradas = [...foundWords, palabraLimpia];
-    setFoundWords(nuevasEncontradas);
-    setInput("");
-
-    if (nuevasEncontradas.length === validWords.length) {
-      setTimeout(proximaPalabra, 1000);
-    }
-
-    return "ok";
   };
 
   return {
@@ -58,9 +33,65 @@ function useGame() {
     input,
     setInput,
     foundWords,
-    checkWord,
-    proximaPalabra
+    setFoundWords,
+    nextWord
   };
+}
+
+function useGame() {
+  const {
+    mainWord,
+    validWords,
+    input,
+    setInput,
+    foundWords,
+    setFoundWords,
+    nextWord
+  } = useWordGame(bancoPalavras);
+
+  const { score, addPoint, resetScore } = useScore();
+  const { time, addTime, isExpired, resetTime, setActive } = useTemporizador(10);
+  
+  const resetGame = () => {
+    resetScore();
+    resetTime();
+    setActive(true);
+    nextWord();
+  };
+
+  const checkWord = () => {
+    const palabra = input.toUpperCase().trim();
+
+    if (!validWords.includes(palabra)) return "invalid";
+    if (foundWords.includes(palabra)) return "duplicate";
+
+    const nuevas = [...foundWords, palabra];
+    setFoundWords(nuevas);
+
+    addPoint();
+    addTime(5);
+
+    setInput("");
+
+    if (nuevas.length === validWords.length) {
+      setTimeout(nextWord, 1000);
+    }
+
+    return "ok";
+  };
+
+  return { 
+  mainWord,
+  validWords,
+  input,
+  setInput,
+  foundWords,
+  checkWord,
+  nextWord,
+  score,
+  time,
+  isExpired,
+  resetGame };
 }
 
 function WordDisplay({ word }) {
@@ -76,12 +107,8 @@ function WordDisplay({ word }) {
 }
 
 function InputSection({ input, setInput, onCheck }) {
-  const manejarTecla = (evento) => {
-    // Verificamos si la tecla presionada es "Enter"
-    if (evento.key === "Enter") {
-      onCheck();
-    }
-  };
+  const manejarTecla = e => e.key === "Enter" && onCheck();
+
   
   return (
     <div className="input-row">
@@ -127,7 +154,21 @@ function Controles({ alAvanzar }) {
 
 function Jogo() {
   const game = useGame();
-
+  
+  if (game.isExpired) {
+    return (
+      <div className="game-container">
+        <div className="card">
+          <h2>Game Over</h2>
+          <p>Puntuação final: {game.score}</p>
+          <button onClick={game.resetGame}>
+            Jogar de novo
+          </button>
+        </div>
+      </div>
+    );
+  }
+  
   return (
     <div className="game-container">
       <h2>Encontra todas as palavras</h2>
@@ -144,22 +185,25 @@ function Jogo() {
         />
 
         {/* Botón para saltar manualmente */}
-        <Controles alAvanzar={game.proximaPalabra} />
+        <Controles alAvanzar={game.nextWord} />
 
         <FoundWords
           words={game.foundWords}
           total={game.validWords.length}
         />
+		
+		<p>Pontuação: {game.score}</p>
+		<p>Tempo: {game.time}s</p>
+
       </div>
     </div>
   );
 }
 
-
 function SinglePlayer() {
   return (
     <div>
-      <ModoIndividual/>
+      <h2>Modo Individual</h2>
       <Jogo />
     </div>
   )
