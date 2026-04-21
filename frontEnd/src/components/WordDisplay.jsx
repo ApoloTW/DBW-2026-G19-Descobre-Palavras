@@ -1,3 +1,4 @@
+import '../styles/home.css'
 import { useState } from "react";
 
 export function WordDisplay({ word }) {

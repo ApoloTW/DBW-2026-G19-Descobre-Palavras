@@ -13,35 +13,32 @@ const bancoPalavras = {
   "CASTILLO": ["TILO", "LISO", "CAST", "SAIL", "COLA", "CALLO"],
 };
 
-// ── Panel de cada jugador ──────────────────────────────────────────
 function PlayerPanel({ name, score, wordsFound, isLocalPlayer }) {
   return (
-    <div className={`player-panel ${isLocalPlayer ? 'local' : 'rival'}`}>
-      <div className="player-header">
+    <div className={`painel-jogador ${isLocalPlayer ? 'local' : 'rival'}`}>
+      <div className="cabecalho-jogador">
         <span className="player-name">👤 {name}</span>
         <span className="trophy">🏆</span>
       </div>
-      <p className="player-score">{score} pts</p>
-      <p className="player-words">{wordsFound} palavras encontradas</p>
+      <p className="pontuacao-jogador">{score} pts</p>
+      <p className="palavras-jogador">{wordsFound} palavras encontradas</p>
     </div>
   );
 }
 
-// ── Timer central ──────────────────────────────────────────────────
 function Timer({ time }) {
   return (
-    <div className="timer-central">
+    <div className="temporizador-central">
       🕐 {time}s
     </div>
   );
 }
 
-// ── Input de respuesta ─────────────────────────────────────────────
 function InputSection({ input, setInput, onCheck }) {
   const handleKey = e => e.key === "Enter" && onCheck();
 
   return (
-    <div className="input-row">
+    <div className="linha-entrada">
       <input
         value={input}
         onChange={e => setInput(e.target.value)}
@@ -53,13 +50,11 @@ function InputSection({ input, setInput, onCheck }) {
   );
 }
 
-// ── Juego principal ────────────────────────────────────────────────
 function Multijogador() {
   const { mainWord, validWords, input, setInput, foundWords, setFoundWords, nextWord } = useWordGame(bancoPalavras);
   const { score, addPoint, resetScore } = useScore();
   const { time, isExpired } = useTemporizador(60);
 
-  // Datos del rival — de momento estáticos, luego vendrán del servidor
   const rival = {
     name: "Rival_293",
     score: 37,
@@ -85,8 +80,8 @@ function Multijogador() {
 
   if (isExpired) {
     return (
-      <div className="game-container">
-        <div className="card">
+      <div className="contentor-jogo">
+        <div className="cartao">
           <h2>Fim do Jogo!</h2>
           <p>A tua pontuação: {score}</p>
           <p>Pontuação do rival: {rival.score}</p>
@@ -97,16 +92,14 @@ function Multijogador() {
   }
 
   return (
-    <div className="game-container">
+    <div className="contentor-jogo">
 
-      {/* Cabecera con link de vuelta */}
-      <div className="top-bar">
+      <div className="barra-topo">
         <Link to="/">🏠 Voltar</Link>
         <h1>Multijogador</h1>
       </div>
 
-      {/* Paneles de jugadores */}
-      <div className="players-row">
+      <div className="fila-jogadores">
         <PlayerPanel
           name="Tu"
           score={score}
@@ -121,18 +114,15 @@ function Multijogador() {
         />
       </div>
 
-      {/* Timer compartido */}
       <Timer time={time} />
 
-      {/* Palabra principal */}
-      <div className="card">
+      <div className="cartao">
         <p>Palavra Principal:</p>
         <WordDisplay word={mainWord} />
         <p>{foundWords.length} de {validWords.length} palavras encontradas</p>
-        <button className="btn-siguiente" onClick={nextWord}>⏭ Saltar Palavra</button>
+        <button className="btn-avancar" onClick={nextWord}>⏭ Saltar Palavra</button>
       </div>
 
-      {/* Input abajo */}
       <InputSection
         input={input}
         setInput={setInput}

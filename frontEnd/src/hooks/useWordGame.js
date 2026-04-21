@@ -1,3 +1,4 @@
+import '../styles/home.css'
 import { useState, useEffect } from "react";
 
 export function useWordGame(bancoPalavras) {

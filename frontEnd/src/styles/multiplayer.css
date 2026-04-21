@@ -1,5 +1,5 @@
 /* ── Layout general ───────────────────────────────────────────── */
-.game-container {
+.contentor-jogo {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem 2rem;
@@ -8,20 +8,20 @@
   gap: 1.5rem;
 }
 
-/* ── Top bar ──────────────────────────────────────────────────── */
-.top-bar {
+/* ── Barra de topo ────────────────────────────────────────────── */
+.barra-topo {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.top-bar a {
+.barra-topo a {
   color: var(--text-color);
   text-decoration: none;
   font-size: 0.95rem;
 }
 
-.top-bar h1 {
+.barra-topo h1 {
   flex: 1;
   text-align: center;
   margin: 0;
@@ -29,13 +29,13 @@
   color: var(--text-primary);
 }
 
-/* ── Paneles de jugadores ─────────────────────────────────────── */
-.players-row {
+/* ── Fila de jogadores ────────────────────────────────────────── */
+.fila-jogadores {
   display: flex;
   gap: 1rem;
 }
 
-.player-panel {
+.painel-jogador {
   flex: 1;
   background: var(--card-bg);
   border-radius: 12px;
@@ -43,15 +43,15 @@
   border: 2px solid transparent;
 }
 
-.player-panel.local {
+.painel-jogador.local {
   border-color: #22c55e;
 }
 
-.player-panel.rival {
+.painel-jogador.rival {
   border-color: #ef4444;
 }
 
-.player-header {
+.cabecalho-jogador {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,21 +60,21 @@
   font-size: 0.9rem;
 }
 
-.player-score {
+.pontuacao-jogador {
   font-size: 2rem;
   font-weight: bold;
   color: var(--text-primary);
   margin: 0;
 }
 
-.player-words {
+.palavras-jogador {
   font-size: 0.85rem;
   color: var(--text-color);
   margin: 0.25rem 0 0;
 }
 
-/* ── Timer central ────────────────────────────────────────────── */
-.timer-central {
+/* ── Temporizador central ─────────────────────────────────────── */
+.temporizador-central {
   text-align: center;
   background: var(--card-bg);
   border: 2px solid #22c55e;
@@ -87,8 +87,8 @@
   margin: 0 auto;
 }
 
-/* ── Card de palabra ──────────────────────────────────────────── */
-.card {
+/* ── Cartão de palavra ────────────────────────────────────────── */
+.cartao {
   background: var(--card-bg);
   border-radius: 12px;
   padding: 1.5rem;
@@ -99,15 +99,15 @@
   gap: 1rem;
 }
 
-/* ── Letras de la palabra ─────────────────────────────────────── */
-.letters {
+/* ── Letras da palavra ────────────────────────────────────────── */
+.letras {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.letter-box {
+.caixa-letra {
   background: var(--button-primary);
   color: var(--text-primary);
   font-size: 1.4rem;
@@ -120,8 +120,8 @@
   border-radius: 8px;
 }
 
-/* ── Botón saltar ─────────────────────────────────────────────── */
-.btn-siguiente {
+/* ── Botão avançar ────────────────────────────────────────────── */
+.btn-avancar {
   background: var(--card-glass);
   color: var(--text-primary);
   border: 1px solid rgba(255,255,255,0.15);
@@ -132,12 +132,12 @@
   transition: background 0.2s;
 }
 
-.btn-siguiente:hover {
+.btn-avancar:hover {
   background: var(--button-hover);
 }
 
-/* ── Input row ────────────────────────────────────────────────── */
-.input-row {
+/* ── Linha de entrada ─────────────────────────────────────────── */
+.linha-entrada {
   display: flex;
   gap: 0.75rem;
   background: var(--card-bg);
@@ -145,21 +145,19 @@
   padding: 1rem 1.5rem;
 }
 
-.input-row input {
+.linha-entrada input {
   flex: 1;
-  background: transparent;
   border: none;
   outline: none;
-  color: var(--text-primary);
   font-size: 1rem;
+  background: var(--input-bg);
 }
 
-.input-row input::placeholder {
-  color: var(--text-color);
+.linha-entrada input::placeholder {
   opacity: 0.5;
 }
 
-.input-row button {
+.linha-entrada button {
   background: var(--button-bg);
   color: var(--button-text);
   border: none;
@@ -170,6 +168,6 @@
   transition: background 0.2s;
 }
 
-.input-row button:hover {
+.linha-entrada button:hover {
   background: var(--button-primary-hover);
 }
