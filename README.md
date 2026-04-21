@@ -41,3 +41,16 @@ Endpoints da API
 | `/user/stats`   | GET    | Obter estatísticas do jogo       |
 | `/user/stats`   | POST   | Guardar progresso/pontuação      |
 
+
+
+
+
+Diagrama /Home  
+<img width="780" height="700" alt="DiagramaHome" src="https://github.com/user-attachments/assets/a55b66aa-56f3-4fd4-aa49-b2a77426c26f" /> 
+  
+Diagrama /SinglePlayer  
+<img width="1020" height="1390" alt="DiagramaSinglePlayer" src="https://github.com/user-attachments/assets/85129c92-0141-4399-b18c-258d49e94b5d" /> 
+  
+Diagrama /MultiPlayer  
+<img width="1020" height="1450" alt="DiagramaMultiPlayer" src="https://github.com/user-attachments/assets/a1b2950b-52a0-4ec7-aa20-74e5dd1e802e" />  
+  
