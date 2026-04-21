@@ -1,6 +1,5 @@
 :root {
   /* Fondo y texto base */
-  --bg-gradient: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
   --text-color: #e5e7eb;
 
   /* Texto */
@@ -37,51 +36,28 @@
   --navbar-border: rgba(255,255,255,0.08);
 }
 
-
 html,
 body,
 #root {
+  margin: 0;
   min-height: 100%;
-  margin: 0;
 }
 
 body {
   font-family: 'Segoe UI';
   color: var(--text-color);
 }
-
-
-html {
-  height: 100%;
-  margin: 0;
-  margin-top: 80px;
-}
-
-body {
-  font-family: 'Segoe UI';
-  padding-top: 0px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 0;
-  min-height: 100vh;
-
-  
-
-  background-attachment: fixed;
-  background: var(--bg-gradient);
-
-
-  
-  color: var(--text-color);
-} 
 
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
+.content {
+  flex: 1;
+  padding-top: 80px;
+}
 
 .app {
   min-height: 100vh;
@@ -89,12 +65,6 @@ body {
   flex-direction: column;
 }
 
-.content {
-  flex: 1;
-  padding-top: 0px;
-}
-
-/*
 .app.fundoAzul {
   background: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
 }
@@ -110,4 +80,3 @@ body {
 .app.fundoVerde {
   background: radial-gradient(circle at center, #002400 10%, #006400 100%);
 }
-  */
