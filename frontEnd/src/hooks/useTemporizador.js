@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function useTemporizador(initialTime = 10) {
   const [time, setTime] = useState(initialTime);

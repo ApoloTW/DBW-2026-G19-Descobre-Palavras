@@ -1,42 +1,16 @@
 import '../styles/singleplayer.css'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { useScore } from '../hooks/useScore';
 import { useTemporizador } from '../hooks/useTemporizador';
-import {useWordGame} from '../hooks/useWordGame';
+import { useWordGame } from '../hooks/useWordGame';
+import { WordDisplay } from '../components/WordDisplay';
 
 const bancoPalavras = {
     "ARMARIO": ["ARMA", "RIO", "MAR", "MARIO"],
     "PLANETA": ["PLAN", "ANTE", "LANA", "NETA", "PALA", "TELA"],
     "CASTILLO": ["TILO", "LISO", "CAST", "SAIL", "COLA", "CALLO"],
   };
-
-function useWordGame(bancoPalavras) {
-  const listaLlaves = Object.keys(bancoPalavras);
-  const [indicePalabra, setIndicePalabra] = useState(0);
-
-  const mainWord = listaLlaves[indicePalabra];
-  const validWords = bancoPalavras[mainWord];
-
-  const [input, setInput] = useState("");
-  const [foundWords, setFoundWords] = useState([]);
-
-  const nextWord = () => {
-    setIndicePalabra(i => (i + 1) % listaLlaves.length);
-    setFoundWords([]);
-    setInput("");
-  };
-
-  return {
-    mainWord,
-    validWords,
-    input,
-    setInput,
-    foundWords,
-    setFoundWords,
-    nextWord
-  };
-}
 
 function useGame() {
   const {
@@ -92,18 +66,6 @@ function useGame() {
   time,
   isExpired,
   resetGame };
-}
-
-function WordDisplay({ word }) {
-  return (
-    <div className="letters">
-      {word.split("").map((letra, indice) => (
-      <div key={indice} className="letter-box">
-        {letra}
-      </div>
-    ))}
-    </div>
-  );
 }
 
 function InputSection({ input, setInput, onCheck }) {
@@ -192,7 +154,7 @@ function Jogo() {
           total={game.validWords.length}
         />
 		
-		<p>Pontuação: {game.score}</p>
+		<p>Puntuación: {game.score}</p>
 		<p>Tempo: {game.time}s</p>
 
       </div>
@@ -200,10 +162,11 @@ function Jogo() {
   );
 }
 
+
+
 function SinglePlayer() {
   return (
     <div>
-      <h2>Modo Individual</h2>
       <Jogo />
     </div>
   )

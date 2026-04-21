@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function useWordGame(bancoPalavras) {
   const listaLlaves = Object.keys(bancoPalavras);
