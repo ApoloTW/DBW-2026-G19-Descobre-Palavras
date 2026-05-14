@@ -24,8 +24,7 @@ function RankTime({ active, setActive }) {
     <div className="buttonInfoTime">
       <button
         className={active === "semanal" ? "boxInfoTime active" : "boxInfoTime"}
-        onClick={() => setActive("semanal")}
-      >
+        onClick={() => setActive("semanal")}>
         <p className="titleInfoTime">📅 Ranking Semanal</p>
       </button>
 

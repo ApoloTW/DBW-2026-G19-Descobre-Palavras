@@ -1,7 +1,4 @@
 :root {
-  /* Fundo e texto base */
-  --text-color: #ffffff;
-
   /* Texto */
   --text-primary: #ffffff;
   --text-inverse: #000000;
@@ -66,6 +63,7 @@ body {
   --button-primary: #2563eb;
   --button-primary-hover: #1e40af;
   --text-word: #0162fe;
+  --text-color-navbar: #3969cf;
 }
 
 .app.fundoVermelho {
@@ -73,7 +71,8 @@ body {
   --button-bg: #fe0101;
   --button-primary: #eb2525;
   --button-primary-hover: #af1e1e;
-  --text-word: #0162fe;
+  --text-word: #fe2f01;
+  --text-color-navbar: #cf3939;
 }
 
 .app.fundoPurpura {
@@ -81,7 +80,8 @@ body {
   --button-bg: #a501fe;
   --button-primary: #c025eb;
   --button-primary-hover: #8d1eaf;
-  --text-word: #0162fe;
+  --text-word: #d401fe;
+  --text-color-navbar: #c339cf;
 }
 
 .app.fundoVerde {
@@ -89,5 +89,6 @@ body {
   --button-bg: #4a7900;
   --button-primary: #4a7110;
   --button-primary-hover: #427114;
-  --text-word: #0162fe;
+  --text-word: #48ad41;
+  --text-color-navbar: #39cf84;
 }

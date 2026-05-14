@@ -142,6 +142,8 @@ function JogoAtivo({
   const jogador2 = jogadores[1]
 
   const palavrasEncontradas = jogadorLocal?.foundWords || []
+  const palavraPrincipal = jogadorLocal?.mainWord || ""
+  const totalPalavras = jogadorLocal?.totalWords || 0
 
   return (
     <>
@@ -170,10 +172,10 @@ function JogoAtivo({
       <div className="cartao">
         <p>Palavra Principal:</p>
 
-        <WordDisplay word={room.mainWord} />
+        <WordDisplay word={palavraPrincipal} />
 
         <p>
-          {palavrasEncontradas.length} de {room.totalWords} palavras encontradas
+          {palavrasEncontradas.length} de {totalPalavras} palavras encontradas
         </p>
 
         <button
@@ -221,8 +223,16 @@ function JogoAtivo({
 }
 
 function ResultadoFinal({ resultado, usuario }) {
-  const vencedor = resultado?.winner
-  const jogadores = resultado?.players || []
+  if (!resultado) {
+    return (
+      <div className="cartao">
+        <h2>A calcular resultado...</h2>
+      </div>
+    )
+  }
+
+  const vencedor = resultado.winner
+  const jogadores = resultado.players || []
 
   const jogadorLocal = jogadores.find(
     (player) => player.userId === usuario.id

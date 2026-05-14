@@ -40,16 +40,30 @@ function escolherPalavraAleatoria() {
   };
 }
 
+function atribuirNovaPalavra(player) {
+  const palavra = escolherPalavraAleatoria();
+
+  player.mainWord = palavra.mainWord;
+  player.validWords = palavra.validWords;
+  player.foundWords = [];
+}
+
 function criarJogador(socket, userId, username) {
-  return {
+  const player = {
     socketId: socket.id,
     userId,
     username: username || "Jogador",
     score: 0,
     correctWords: 0,
     wrongWords: 0,
+    mainWord: "",
+    validWords: [],
     foundWords: []
   };
+
+  atribuirNovaPalavra(player);
+
+  return player;
 }
 
 function prepararSalaParaCliente(room) {
@@ -63,13 +77,13 @@ function prepararSalaParaCliente(room) {
       score: player.score,
       correctWords: player.correctWords,
       wrongWords: player.wrongWords,
+      mainWord: player.mainWord,
+      totalWords: player.validWords.length,
       foundWords: player.foundWords
     })),
     playerCount: room.players.length,
     maxPlayers: 2,
-    readyToStart: room.players.length === 2,
-    mainWord: room.mainWord,
-    totalWords: room.validWords.length
+    readyToStart: room.players.length === 2
   };
 }
 
@@ -86,21 +100,23 @@ function iniciarJogo(io, room) {
     return;
   }
 
-  const palavra = escolherPalavraAleatoria();
-
-  room.mainWord = palavra.mainWord;
-  room.validWords = palavra.validWords;
   room.status = "playing";
   room.time = 60;
   room.statsSaved = false;
 
-  room.players = room.players.map((player) => ({
-    ...player,
-    score: 0,
-    correctWords: 0,
-    wrongWords: 0,
-    foundWords: []
-  }));
+  room.players = room.players.map((player) => {
+    const jogador = {
+      ...player,
+      score: 0,
+      correctWords: 0,
+      wrongWords: 0,
+      foundWords: []
+    };
+
+    atribuirNovaPalavra(jogador);
+
+    return jogador;
+  });
 
   emitirSala(io, room);
   emitirEstadoJogo(io, room);
@@ -118,17 +134,8 @@ function iniciarJogo(io, room) {
   }, 1000);
 }
 
-function mudarPalavra(io, room) {
-  const palavra = escolherPalavraAleatoria();
-
-  room.mainWord = palavra.mainWord;
-  room.validWords = palavra.validWords;
-
-  room.players.forEach((player) => {
-    player.foundWords = [];
-  });
-
-  emitirEstadoJogo(io, room);
+function mudarPalavraDoJogador(player) {
+  atribuirNovaPalavra(player);
 }
 
 async function guardarEstatisticas(room) {
@@ -189,19 +196,19 @@ async function terminarJogo(io, room) {
   }
 
   const jogador1 = room.players[0];
-const jogador2 = room.players[1];
+  const jogador2 = room.players[1];
 
-let vencedor = null;
+  let vencedor = null;
 
-if (jogador1 && jogador2) {
-  if (jogador1.score > jogador2.score) {
-    vencedor = jogador1;
-  } else if (jogador2.score > jogador1.score) {
-    vencedor = jogador2;
-  } else {
-    vencedor = null;
+  if (jogador1 && jogador2) {
+    if (jogador1.score > jogador2.score) {
+      vencedor = jogador1;
+    } else if (jogador2.score > jogador1.score) {
+      vencedor = jogador2;
+    } else {
+      vencedor = null;
+    }
   }
-}
 
   await guardarEstatisticas(room);
 
@@ -213,6 +220,8 @@ if (jogador1 && jogador2) {
       score: player.score,
       correctWords: player.correctWords,
       wrongWords: player.wrongWords,
+      mainWord: player.mainWord,
+      totalWords: player.validWords.length,
       foundWords: player.foundWords
     })),
     winner: vencedor
@@ -281,8 +290,6 @@ function configureGameSocket(io) {
         players: [
           criarJogador(socket, userId, username)
         ],
-        mainWord: "",
-        validWords: [],
         intervalId: null,
         statsSaved: false,
         createdAt: new Date()
@@ -452,7 +459,7 @@ function configureGameSocket(io) {
         return;
       }
 
-      if (!room.validWords.includes(palavra)) {
+      if (!player.validWords.includes(palavra)) {
         player.wrongWords += 1;
 
         socket.emit("wordResult", {
@@ -481,8 +488,9 @@ function configureGameSocket(io) {
         message: "Palavra correta"
       });
 
-      if (player.foundWords.length === room.validWords.length) {
-        mudarPalavra(io, room);
+      if (player.foundWords.length === player.validWords.length) {
+        mudarPalavraDoJogador(player);
+        emitirEstadoJogo(io, room);
         return;
       }
 
@@ -497,7 +505,16 @@ function configureGameSocket(io) {
         return;
       }
 
-      mudarPalavra(io, room);
+      const player = room.players.find(
+        (jogador) => jogador.socketId === socket.id
+      );
+
+      if (!player) {
+        return;
+      }
+
+      mudarPalavraDoJogador(player);
+      emitirEstadoJogo(io, room);
     });
 
     socket.on("leaveRoom", ({ roomCode }) => {

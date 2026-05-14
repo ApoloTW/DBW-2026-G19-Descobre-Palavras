@@ -30,7 +30,7 @@ function Navbar({ usuario, setUsuario }) {
   return (
     <nav className={scrolled ? "navbar scrolled" : "navbar"}>
       <div className="logo">
-        Descobre Palavras
+        <Link to="/">Descobre Palavras</Link>
       </div>
 
       <div className="links">

@@ -10,9 +10,7 @@ function SobreNos() {
 
 function SegundoTitulo() {
   return (
-    <p className="text">
-      Descobre quem somos e o que nos inspira
-    </p>
+    <p className="text">Descobre quem somos e o que nos inspira</p>
   )
 }
 

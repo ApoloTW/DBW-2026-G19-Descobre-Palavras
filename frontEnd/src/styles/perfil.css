@@ -1,7 +1,3 @@
-:root {
-
-}
-
 .perfilPage {
     max-width: 1180px;
     margin: 0 auto;
@@ -112,6 +108,8 @@
 
 .boxRecordProfile {
     min-height: 170px;
+    background: linear-gradient(90deg, #6A2A00 0%, #542200 60%, #4A1A00 100%);
+    border: 2px solid #C98A00;
 }
 
 .fundoGrid {

@@ -6,27 +6,32 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--navbar-bg);
   transition: all 0.3s ease;
   z-index: 1000;
+  background: var(--navbar-bg);
 }
 
 .navbar.scrolled {
-  background: var(--navbar-bg-transparent);
   backdrop-filter: blur(10px);
+  background: var(--navbar-bg-transparent);
   border-bottom: 1px solid var(--navbar-border);
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--text-primary);
   margin-left: 150px;
-  cursor: pointer;
 }
 
-.logo:hover {
-  color: var(--accent);
+.logo a{
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+  color: var(--text-primary);
+}
+
+.logo a:hover {
+  color: var(--text-color-navbar);
 }
 
 .links {
@@ -39,11 +44,10 @@
 .links button {
   margin-left: 30px;
   text-decoration: none;
-  color: var(--text-primary);
   font-weight: bold;
   font-size: 1rem;
-  font-family: inherit;
   transition: color 0.2s;
+  color: var(--text-primary);
 }
 
 .links button {
@@ -59,7 +63,7 @@
 
 .links a:hover,
 .links button:hover {
-  color: var(--accent);
+  color: var(--text-color-navbar);
 }
 
 .links button:focus,
