@@ -1,25 +1,20 @@
 :root {
-  /* Fondo y texto base */
-  --text-color: #e5e7eb;
+  /* Fundo e texto base */
+  --text-color: #ffffff;
 
   /* Texto */
   --text-primary: #ffffff;
   --text-inverse: #000000;
 
-  /* Colores principales */
-  --accent: #0162fe;
-
   /* Cards y superficies */
-  --card-bg: #1e293b;
   --card-transparent: #2564eb00;
   --card-glass: rgba(255, 255, 255, 0.08);
+  --card-glass-small: rgba(255, 255, 255, 0.10);
+  --card-border: rgba(255, 255, 255, 0.18);
 
   /* Botones */
-  --button-bg: #0162fe;
   --button-text: #ffffff;
   --button-hover: #ffffff58;
-  --button-primary: #2563eb;
-  --button-primary-hover: #1e40af;
 
   /* Inputs */
   --input-bg: #ffffff;
@@ -67,16 +62,32 @@ body {
 
 .app.fundoAzul {
   background: radial-gradient(circle at center, #2563eb 0%, #1e293b 40%, #020617 100%);
+  --button-bg: #0162fe;
+  --button-primary: #2563eb;
+  --button-primary-hover: #1e40af;
+  --text-word: #0162fe;
 }
 
 .app.fundoVermelho {
   background: radial-gradient(circle at center, #250000 10%, #7a0000 100%);
+  --button-bg: #fe0101;
+  --button-primary: #eb2525;
+  --button-primary-hover: #af1e1e;
+  --text-word: #0162fe;
 }
 
 .app.fundoPurpura {
   background: radial-gradient(circle at center, #2c002c 10%, #800080 100%);
+  --button-bg: #a501fe;
+  --button-primary: #c025eb;
+  --button-primary-hover: #8d1eaf;
+  --text-word: #0162fe;
 }
 
 .app.fundoVerde {
   background: radial-gradient(circle at center, #002400 10%, #006400 100%);
+  --button-bg: #4a7900;
+  --button-primary: #4a7110;
+  --button-primary-hover: #427114;
+  --text-word: #0162fe;
 }

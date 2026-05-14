@@ -1,11 +1,30 @@
 import '../styles/perfil.css'
-import { useState } from 'react';
+import { useState } from 'react'
+
 import avatar1 from '../assets/avatars/avatar1.png'
 import avatar2 from '../assets/avatars/avatar2.png'
 import avatar3 from '../assets/avatars/avatar3.png'
 import avatar4 from '../assets/avatars/avatar4.png'
 import avatar5 from '../assets/avatars/avatar5.png'
 import avatar6 from '../assets/avatars/avatar6.png'
+
+const API_URL = "http://localhost:3000/api/users"
+
+const avatares = [
+  { id: "avatar1", image: avatar1 },
+  { id: "avatar2", image: avatar2 },
+  { id: "avatar3", image: avatar3 },
+  { id: "avatar4", image: avatar4 },
+  { id: "avatar5", image: avatar5 },
+  { id: "avatar6", image: avatar6 },
+]
+
+const fundos = [
+  { id: "fundoAzul", nome: "Azul Escuro", preview: "previewAzul" },
+  { id: "fundoVermelho", nome: "Vermelho Escuro", preview: "previewVermelho" },
+  { id: "fundoPurpura", nome: "Púrpura", preview: "previewPurpura" },
+  { id: "fundoVerde", nome: "Verde Escuro", preview: "previewVerde" }
+]
 
 function MeuPerfil() {
   return (
@@ -15,18 +34,38 @@ function MeuPerfil() {
   )
 }
 
-function Avatar({ setAvatar }) {
-  const avatares = [
-    { id: 1, image: avatar1 },
-    { id: 2, image: avatar2 },
-    { id: 3, image: avatar3 },
-    { id: 4, image: avatar4 },
-    { id: 5, image: avatar5 },
-    { id: 6, image: avatar6 },
-  ];
+async function atualizarPerfil(dadosParaAtualizar, setUsuario) {
+  const token = localStorage.getItem("token")
 
-  const [avatarSelecionado, setAvatarSelecionado] = useState(avatares[0]);
-  
+  const resposta = await fetch(`${API_URL}/profile`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(dadosParaAtualizar)
+  })
+
+  const dados = await resposta.json()
+
+  if (!resposta.ok) {
+    alert(dados.message || "Erro ao atualizar perfil")
+    return null
+  }
+
+  localStorage.setItem("user", JSON.stringify(dados.user))
+  setUsuario(dados.user)
+
+  return dados.user
+}
+
+function Avatar({ usuario, setUsuario }) {
+  const avatarAtual = usuario?.avatar || "avatar1"
+
+  async function selecionarAvatar(avatarId) {
+    await atualizarPerfil({ avatar: avatarId }, setUsuario)
+  }
+
   return (
     <div className="boxInfoProfile">
       <h1 className="boxTitleProfile">🖼️ Avatar</h1>
@@ -36,33 +75,48 @@ function Avatar({ setAvatar }) {
           <div
             key={avatar.id}
             className={`avatarItem ${
-              avatarSelecionado.id === avatar.id ? "selecionado" : ""
+              avatarAtual === avatar.id ? "selecionado" : ""
             }`}
-            onClick={() => {
-              setAvatarSelecionado(avatar);
-              setAvatar(avatar.image);
-            }}>
+            onClick={() => selecionarAvatar(avatar.id)}
+          >
             <img
               src={avatar.image}
               alt={`Avatar ${avatar.id}`}
               className="avatarImage"
             />
-          
-            {avatarSelecionado.id === avatar.id && (
+
+            {avatarAtual === avatar.id && (
               <div className="checkAvatar">✓</div>
             )}
           </div>
-
         ))}
       </div>
+
       <p className="textBoxProfile">Escolhe o teu Avatar</p>
     </div>
   )
 }
 
-/* Falta a informação que vai ser obtida pela base de dados por agora esta colocada hard-code a 0 */
+function calcularMedia(score, gamesPlayed) {
+  if (!gamesPlayed || gamesPlayed === 0) {
+    return 0
+  }
 
-function Estatisticas() {
+  return Math.round(score / gamesPlayed)
+}
+
+function Estatisticas({ usuario }) {
+  const today = usuario?.stats?.today || {}
+  const monthly = usuario?.stats?.monthly || {}
+
+  const todayCorrectWords = today.correctWords || 0
+  const todayGamesPlayed = today.gamesPlayed || 0
+  const todayScore = today.score || 0
+
+  const monthlyCorrectWords = monthly.correctWords || 0
+  const monthlyGamesPlayed = monthly.gamesPlayed || 0
+  const monthlyScore = monthly.score || 0
+
   return (
     <div className="boxInfoProfile">
       <h1 className="boxTitleProfile">📈 Estatísticas</h1>
@@ -72,55 +126,67 @@ function Estatisticas() {
           <h1 className="boxTitleProfile boxTitleInnerProfile">📅 Hoje</h1>
 
           <p className="textBoxStatsProfile">Palavras encontradas</p>
-          <p className="boxTitleStatsProfile">1</p>
+          <p className="boxTitleStatsProfile">{todayCorrectWords}</p>
 
           <p className="textBoxStatsProfile">Partidas jogadas</p>
-          <p className="boxTitleStatsProfile">0</p>
+          <p className="boxTitleStatsProfile">{todayGamesPlayed}</p>
 
           <p className="textBoxStatsProfile">Pontuação média</p>
-          <p className="boxTitleStatsProfile">0</p>
+          <p className="boxTitleStatsProfile">
+            {calcularMedia(todayScore, todayGamesPlayed)}
+          </p>
         </div>
 
         <div className="boxInfoSmallProfile">
           <h1 className="boxTitleProfile boxTitleInnerProfile">📅 Este Mês</h1>
 
           <p className="textBoxStatsProfile">Palavras encontradas</p>
-          <p className="boxTitleStatsProfile">1</p>
+          <p className="boxTitleStatsProfile">{monthlyCorrectWords}</p>
 
           <p className="textBoxStatsProfile">Partidas jogadas</p>
-          <p className="boxTitleStatsProfile">0</p>
+          <p className="boxTitleStatsProfile">{monthlyGamesPlayed}</p>
 
           <p className="textBoxStatsProfile">Pontuação média</p>
-          <p className="boxTitleStatsProfile">0</p>
+          <p className="boxTitleStatsProfile">
+            {calcularMedia(monthlyScore, monthlyGamesPlayed)}
+          </p>
         </div>
       </div>
     </div>
   )
 }
 
-function NomeUtilizador({ usuario }) {
-  const [editando, setEditando] = useState(false);
-  const [novoNome, setNovoNome] = useState("");
+function NomeUtilizador({ usuario, setUsuario }) {
+  const [editando, setEditando] = useState(false)
+  const [novoNome, setNovoNome] = useState("")
 
-  const nomeAtual = usuario?.username || usuario?.nome || "Sem nome";
+  const nomeAtual = usuario?.username || "Sem nome"
 
-  const iniciarEdicao = () => {
-    setNovoNome(nomeAtual);
-    setEditando(true);
-  };
+  function iniciarEdicao() {
+    setNovoNome(nomeAtual)
+    setEditando(true)
+  }
 
-  const guardarNome = () => {
-    console.log("Nuevo nombre:", novoNome);
+  async function guardarNome() {
+    if (!novoNome.trim()) {
+      alert("O nome de utilizador não pode estar vazio")
+      return
+    }
 
-    /* más adelante la llamada al backend o actualizar el usuario real */
+    const userAtualizado = await atualizarPerfil(
+      { username: novoNome },
+      setUsuario
+    )
 
-    setEditando(false);
-  };
+    if (userAtualizado) {
+      setEditando(false)
+    }
+  }
 
-  const cancelarEdicao = () => {
-    setNovoNome(nomeAtual);
-    setEditando(false);
-  };
+  function cancelarEdicao() {
+    setNovoNome(nomeAtual)
+    setEditando(false)
+  }
 
   return (
     <div className="boxInfoProfile">
@@ -130,7 +196,11 @@ function NomeUtilizador({ usuario }) {
         <div>
           <p className="nameUserProfile">{nomeAtual}</p>
 
-          <button type="button" className="editNameButton" onClick={iniciarEdicao}>
+          <button
+            type="button"
+            className="editNameButton"
+            onClick={iniciarEdicao}
+          >
             Alterar nome
           </button>
         </div>
@@ -145,11 +215,19 @@ function NomeUtilizador({ usuario }) {
           />
 
           <div className="editButtonsRow">
-            <button type="button" className="saveButton" onClick={guardarNome}>
+            <button
+              type="button"
+              className="saveButton"
+              onClick={guardarNome}
+            >
               Guardar
             </button>
 
-            <button type="button" className="cancelButton" onClick={cancelarEdicao}>
+            <button
+              type="button"
+              className="cancelButton"
+              onClick={cancelarEdicao}
+            >
               Cancelar
             </button>
           </div>
@@ -159,15 +237,12 @@ function NomeUtilizador({ usuario }) {
   )
 }
 
-function FundoJogo({ setFundoAtual }) {
-  const fundos = [
-    { id: 1, nome: "Azul Escuro", preview: "previewAzul", classe: "fundoAzul" },
-    { id: 2, nome: "Vermelho Escuro", preview: "previewVermelho", classe: "fundoVermelho" },
-    { id: 3, nome: "Púrpura", preview: "previewPurpura", classe: "fundoPurpura" },
-    { id: 4, nome: "Verde Escuro", preview: "previewVerde", classe: "fundoVerde" }
-  ];
+function FundoJogo({ usuario, setUsuario }) {
+  const fundoAtual = usuario?.background || "fundoAzul"
 
-  const [fundoSelecionado, setFundoSelecionado] = useState(fundos[0]);
+  async function selecionarFundo(fundoId) {
+    await atualizarPerfil({ background: fundoId }, setUsuario)
+  }
 
   return (
     <div className="boxInfoProfile">
@@ -178,14 +253,11 @@ function FundoJogo({ setFundoAtual }) {
           <div
             key={fundo.id}
             className={`fundoCard ${fundo.preview} ${
-              fundoSelecionado.id === fundo.id ? "ativo" : ""
+              fundoAtual === fundo.id ? "ativo" : ""
             }`}
-            onClick={() => {
-              setFundoSelecionado(fundo);
-              setFundoAtual(fundo.classe);
-            }}
+            onClick={() => selecionarFundo(fundo.id)}
           >
-            {fundoSelecionado.id === fundo.id && (
+            {fundoAtual === fundo.id && (
               <div className="checkFundo">✓</div>
             )}
 
@@ -194,38 +266,40 @@ function FundoJogo({ setFundoAtual }) {
         ))}
       </div>
 
-      <p className="textBoxProfile">Pré-visualização atual - Este fundo será aplicado durante as tuas partidas</p>
+      <p className="textBoxProfile">
+        Pré-visualização atual - Este fundo será aplicado durante as tuas partidas
+      </p>
     </div>
   )
 }
 
-/* Falta a informação que vai ser obtida pela base de dados por agora esta colocada hard-code a 0 */
+function RecordePessoal({ usuario }) {
+  const personalRecord = usuario?.personalRecord || 0
 
-function RecordePessoal() {
   return (
     <div className="boxInfoProfile boxRecordProfile">
       <h1 className="boxTitleProfile">🏆 Recorde Pessoal</h1>
-      <p className="boxTitlePoints">0</p>
+      <p className="boxTitlePoints">{personalRecord}</p>
       <p className="textBoxProfile">pontos</p>
     </div>
   )
 }
 
-function Perfil({ usuario, setFundoAtual, setAvatar }) {
+function Perfil({ usuario, setUsuario }) {
   return (
     <div className="perfilPage">
       <MeuPerfil />
 
       <div className="perfilGrid">
         <div className="perfilColunaEsquerda">
-          <Avatar setAvatar={ setAvatar }/>
-          <NomeUtilizador usuario={usuario}/>
-          <RecordePessoal />
+          <Avatar usuario={usuario} setUsuario={setUsuario} />
+          <NomeUtilizador usuario={usuario} setUsuario={setUsuario} />
+          <RecordePessoal usuario={usuario} />
         </div>
 
         <div className="perfilColunaDireita">
-          <Estatisticas />
-          <FundoJogo setFundoAtual={setFundoAtual} />
+          <Estatisticas usuario={usuario} />
+          <FundoJogo usuario={usuario} setUsuario={setUsuario} />
         </div>
       </div>
     </div>

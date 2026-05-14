@@ -5,7 +5,7 @@
 .mainTitleRank {
     text-align: center;
     width: 100%;
-    color: white;
+    color: var(--text-primary);
 }
 
 .mainTitleRank h1 {
@@ -19,7 +19,7 @@
     line-height: 1.5;
     margin-top: -20px;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .titleInfoTime {
@@ -28,7 +28,7 @@
     font-weight: bold;
     font-size: 15px;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .buttonInfoTime {
@@ -42,9 +42,9 @@
 .boxInfoTime {
     padding: 0px 35px;
     border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.08);
-    color: white;
+    border: 1px solid var(--card-border);
+    background: var(--card-glass);
+    color: var(--text-primary);
     cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
     font-size: 20px;
     line-height: 1.5;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxUserName {
@@ -65,21 +65,21 @@
     font-size: 20px;
     line-height: 1.5;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxDate {
     font-size: 12px;
     line-height: 1.5;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxStatsInfo {
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxStats {
@@ -87,7 +87,7 @@
     font-size: 17px;
     line-height: 1.5;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .columnInfo {
@@ -105,9 +105,9 @@
     padding: 20px 28px;
     border-radius: 15px;
     width: 100%;
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-primary);
+    background: var(--card-glass);
+    border: 1px solid var(--card-border);
     box-sizing: border-box;
 }
 
@@ -141,7 +141,7 @@
     font-size: 14px;
     line-height: 1.5;
     margin: 0;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .boxInfoFinalText {
@@ -153,8 +153,8 @@
     padding: 20px;
     border-radius: 15px;
     width: 100%;
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-primary);
+    background: var(--card-glass);
+    border: 1px solid var(--card-border);
     box-sizing: border-box;
 }

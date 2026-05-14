@@ -11,14 +11,14 @@
 }
 
 .titulo h2 {
-  margin-top: 1px;
   font-size: 1.4rem;
+  margin-top: 1px;
   color: var(--text-primary);
 }
 
 .titulo p {
-  margin-top: 10px;
   font-size: 1rem;
+  margin-top: 10px;
   color: var(--text-primary);
 }
 
@@ -29,33 +29,34 @@
 }
 
 .caja {
-  background-color: var(--card-bg);
-  color: var(--text-primary);
   padding: 5px 30px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
 }
 
 .caja:hover {
+  transform: scale(1.05);
   color: var(--text-inverse);
   background-color: var(--hover-bg-strong);
-  transform: scale(1.05);
 }
 
 .game-container {
   text-align: center;
+  margin-top: 10px;
   color: var(--text-primary);
-  margin-top: 50px;
 }
 
 .card {
   margin: 20px auto;
   max-width: 700px;
-  background: var(--card-transparent);
   padding: 10px;
   border-radius: 800px;
+  background: var(--card-glass);
+  border: 1px solid var(--card-border);
 }
 
 .letters {
@@ -66,11 +67,11 @@
 }
 
 .letter-box {
-  background: var(--accent);
   padding: 15px;
   border-radius: 10px;
   width: 30px;
   font-weight: bold;
+  background: var(--text-word);
   color: var(--text-primary);
 }
 
@@ -85,17 +86,18 @@ input {
   border-radius: 8px;
   border: none;
   width: 60%;
+  /* NO HACE NADA */
   background: var(--input-bg);
   color: var(--text-primary);
 }
 
 button {
   padding: 10px 15px;
-  background: var(--button-bg);
   border: none;
   border-radius: 8px;
-  color: var(--button-text);
   cursor: pointer;
+  color: var(--button-text);
+  background: var(--button-bg);
 }
 
 button:hover {
@@ -107,9 +109,9 @@ button:hover {
   display: inline-block;
   margin: 5px;
   padding: 5px 10px;
-  background: var(--found-word-bg);
   border-radius: 6px;
   color: var(--text-primary);
+  background: var(--found-word-bg);
 }
 
 .features-container {
@@ -132,7 +134,7 @@ button:hover {
   backdrop-filter: blur(8px);
 
   transition: transform 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--card-border);
 }
 
 .feature-card:hover {

@@ -5,8 +5,8 @@
 .mainTitle {
     text-align: center;
     width: 100%;
-    color: white;
     margin-top: 30px;
+    color: var(--text-primary);
 }
 
 .mainTitle h1 {
@@ -19,7 +19,7 @@
     font-size: 30px;
     margin-top: 10px;
     margin-bottom: 50px;
-    color: white;
+    color: var(--text-primary);
 }
 
 .boxTitleSmall {
@@ -27,7 +27,7 @@
     font-size: 20px;
     margin-top: -15px;
     margin-bottom: 30px;
-    color: white;
+    color: var(--text-primary);
 }
 
 .text {
@@ -36,7 +36,7 @@
     line-height: 1.5;
     margin-top: -20px;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBox {
@@ -48,7 +48,7 @@
     line-height: 1.5;
     margin: 0;
     margin-top: -20px;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxSmall {
@@ -61,7 +61,7 @@
     margin: 0;
     margin-top: -20px;
     margin-bottom: -10px;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxSmallTrans{
@@ -74,7 +74,7 @@
     margin: 0 auto;
     max-width: 220px;
     margin-top: -5px;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .boxInfo {
@@ -82,9 +82,9 @@
     margin: 35px auto;
     padding: 30px;
     border-radius: 15px;
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-primary);
+    background: var(--card-glass);
+    border: 1px solid var(--card-border);
 }
 
 .boxInfoRow {
@@ -100,8 +100,8 @@
     flex: 1 1 300px;
     padding: 30px;
     border-radius: 15px;
-    color: white;
-    background: rgba(255, 255, 255, 0.10);
+    color: var(--text-primary);
+    background: var(--card-glass-small);
 }
 
 .boxInfoTrans{

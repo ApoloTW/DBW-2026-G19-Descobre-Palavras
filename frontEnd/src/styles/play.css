@@ -5,7 +5,7 @@
 .mainTitlePlay {
     text-align: center;
     width: 100%;
-    color: white;
+    color: var(--text-primary);
 }
 
 .mainTitlePlay h1 {
@@ -18,7 +18,22 @@
     font-size: 30px;
     margin-top: 10px;
     margin-bottom: 50px;
-    color: white;
+    color: var(--text-primary);
+}
+
+.opcionSalaBox {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.opcionSalaInsideBox {
+    text-align: center;
+    padding: 35px;
+    border-radius: 18px;
+    background: var(--card-glass-small);
+    border: 1px solid var(--card-border);
 }
 
 .textPlay {
@@ -27,7 +42,7 @@
     line-height: 1.5;
     margin-top: -20px;
     width: 100%;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxPlay {
@@ -36,7 +51,7 @@
     line-height: 1.5;
     margin: 0;
     margin-top: -20px;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textBoxSmallPlay{
@@ -48,7 +63,60 @@
     max-width: 220px;
     margin-top: 25px;
     margin-bottom: 1px;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
+}
+
+.textBoxSmallPlay::placeholder {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.salaButton {
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: -15px;
+    padding: 15px;
+    border-radius: 15px;
+    color: var(--text-primary);
+}
+
+.salaButton:hover {
+    color: var(--text-inverse);
+    background-color: var(--hover-bg-strong);
+    transform: scale(1.05);
+}
+
+.salaBoxSmall {
+    display: flex;
+    align-items: left;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    width: 100%;
+    background: var(--card-glass);
+    border: 1px solid var(--card-border);
+}
+
+.codigoSalaInput {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    font-size: 15px;
+    color: var(--text-primary);
+}
+
+.codigoSalaInput::placeholder {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .boxInfoPlay {
@@ -60,9 +128,9 @@
     margin: 15px;
     padding: 30px;
     border-radius: 15px;
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
-    border: 2px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-primary);
+    background: var(--card-glass);
+    border: 2px solid var(--card-border);
 
     cursor: pointer;
     appearance: none;
@@ -71,7 +139,7 @@
 }
 
 .boxInfoPlay:hover {
-    background: rgba(255, 255, 255, 0.13); /* ligeramente más visible */
+    background: var( --card-glass-small);
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }

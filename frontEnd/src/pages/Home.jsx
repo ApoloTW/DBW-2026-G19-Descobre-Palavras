@@ -163,7 +163,7 @@ function Features() {
 
       <FeatureCard
         icon="⏱️"
-        title="Modo Contrarreloj"
+        title="Modo Contrarrelógio"
         text="Encontra palavras antes que o tempo acabe. Cada acerto adiciona segundos!"
       />
 

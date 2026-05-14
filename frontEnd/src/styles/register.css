@@ -9,7 +9,7 @@
     margin-top: 10px;
     margin-bottom: 35px;
     width: 100%;
-    color: white;
+    color: var(--text-primary);
 }
 
 .textRegisterBox {
@@ -21,7 +21,7 @@
     line-height: 1.5;
     margin: 5px;
     margin-top: -10px;
-    color: rgb(255, 255, 255);
+    color: var(--text-primary);
 }
 
 .textNaoTensConta {
@@ -32,18 +32,7 @@
     font-size: 15px;
     line-height: 1.5;
     margin: 5px;
-    color: rgb(255, 255, 255);
-}
-
-.registate  {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 5px;
-    font-weight: bold;
-    color: rgb(146, 29, 29)
+    color: var(--text-primary);
 }
 
 .registerBox {
@@ -55,9 +44,9 @@
     padding: 30px;
     border-radius: 15px;
     width: 100%;
-    color: white;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-primary);
+    background: var(--card-glass);
+    border: 1px solid var(--card-border);
 }
 
 .registerBoxSmall {
@@ -69,14 +58,13 @@
     padding: 10px 14px;
     border-radius: 15px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: var( --card-glass-small);
+    border: 1px solid var(--card-border);
 }
 
 .inputIcon {
     font-size: 18px;
     flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.7);
 }
 
 .registerInput {
@@ -85,7 +73,7 @@
     background: transparent;
     flex: 1;
     font-size: 15px;
-    color: white;
+    color: var(--text-primary);
 }
 
 .registerInput::placeholder {
@@ -104,6 +92,11 @@
     margin-bottom: 25px;
     padding: 15px;
     border-radius: 15px;
-    color: rgb(255, 255, 255);
-    /*background: red;*/
+    color: var(--text-primary);
+}
+
+.registerButton:hover {
+    color: var(--text-inverse);
+    background-color: var(--hover-bg-strong);
+    transform: scale(1.05);
 }

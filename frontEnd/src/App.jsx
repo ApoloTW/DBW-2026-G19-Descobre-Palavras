@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
@@ -26,8 +26,52 @@ function ProtectedRoute({ usuario, children }) {
 }
 
 function App() {
-  const [usuario, setUsuario] = useState(null)
-  const [fundoAtual, setFundoAtual] = useState("fundoAzul");
+  const [usuario, setUsuario] = useState(() => {
+    const userGuardado = localStorage.getItem("user")
+
+    if (userGuardado) {
+      return JSON.parse(userGuardado)
+    }
+
+    return null
+  })
+
+  const fundoAtual = usuario?.background || "fundoAzul"
+
+  useEffect(() => {
+    async function carregarUsuario() {
+      const token = localStorage.getItem("token")
+
+      if (!token) {
+        return
+      }
+
+      try {
+        const resposta = await fetch("http://localhost:3000/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+
+        const dados = await resposta.json()
+
+        if (!resposta.ok) {
+          localStorage.removeItem("token")
+          localStorage.removeItem("user")
+          setUsuario(null)
+          return
+        }
+
+        localStorage.setItem("user", JSON.stringify(dados.user))
+        setUsuario(dados.user)
+
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    carregarUsuario()
+  }, [])
 
   return (
     <BrowserRouter>
@@ -45,7 +89,7 @@ function App() {
               path="/play"
               element={
                 <ProtectedRoute usuario={usuario}>
-                <Play usuario={usuario} />
+                  <Play usuario={usuario} />
                 </ProtectedRoute>
               }
             />
@@ -54,16 +98,16 @@ function App() {
               path="/singleplayer"
               element={
                 <ProtectedRoute usuario={usuario}>
-                <SinglePlayer usuario={usuario} />
+                  <SinglePlayer usuario={usuario} setUsuario={setUsuario} />
                 </ProtectedRoute>
-            }
+              }
             />
 
             <Route
               path="/multiplayer"
               element={
                 <ProtectedRoute usuario={usuario}>
-                <MultiPlayer usuario={usuario} />
+                  <MultiPlayer usuario={usuario} setUsuario={setUsuario} />
                 </ProtectedRoute>
               }
             />
@@ -72,7 +116,10 @@ function App() {
               path="/perfil"
               element={
                 <ProtectedRoute usuario={usuario}>
-                <Perfil usuario={usuario} setFundoAtual={setFundoAtual} />
+                  <Perfil
+                    usuario={usuario}
+                    setUsuario={setUsuario}
+                  />
                 </ProtectedRoute>
               }
             />
@@ -82,7 +129,6 @@ function App() {
         </main>
 
         <Footer />
-
       </div>
     </BrowserRouter>
   )
